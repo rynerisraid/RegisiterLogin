@@ -4,6 +4,7 @@ from Book import BookInfo
 from userinfo import UserInfo
 
 
+
 #配置Debug模式
 DEBUG = True
 
@@ -48,6 +49,10 @@ def register_with_sms_code():
     #print("register_with_sms_code")
     #print("====router:register=====")
     return userinfo.register_with_sms_code()
+
+@app.route('/code',methods=['GET'])
+def get_veritify_code():
+    return jsonify(userinfo._PHONE)
 
 if __name__ == '__main__':
 
